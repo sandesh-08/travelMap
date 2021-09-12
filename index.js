@@ -9,19 +9,19 @@ const PORT = process.env.PORT || 5000;
 dotenv.config();
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URL,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-}).then(()=>{
-    console.log("MONGODB Connected!!!!");
-}).catch((err)=>console.log("error with mongodb ",err));
+// mongoose.connect(process.env.MONGO_URL,{
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+// }).then(()=>{
+//     console.log("MONGODB Connected!!!!");
+// }).catch((err)=>console.log("error with mongodb ",err));
 
-app.get("/",(req,res)=>{
-    res.send("running", `${process.env.MONGO_URL}`);
-})
+// app.get("/",(req,res)=>{
+//     res.send("running", `${process.env.MONGO_URL}`);
+// })
 
-app.use("/api/users", userRoutes);
-app.use("/api/pins", pinRoutes);
+// app.use("/api/users", userRoutes);
+// app.use("/api/pins", pinRoutes);
 
 app.listen(PORT,()=>console.log("backend server is running "));
