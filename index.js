@@ -18,7 +18,7 @@ mongoose.connect("mongodb+srv://mapAppAdmin:NKvLrFyYjOaOpiag@cluster0.3bhcc.mong
 }).catch((err)=>console.log("error with mongodb ",err));
 
 app.get("/",(req,res)=>{
-    res.send(`running`);
+    res.send(`running ${process.env.MONGO_URL}`);
 })
 
 app.use("/api/users", userRoutes);
