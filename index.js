@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8800;
 dotenv.config();
 app.use(express.json());
 
-mongoose.connect(`${process.env.MONGO_URL}`,{
+mongoose.connect("mongodb+srv://mapAppAdmin:NKvLrFyYjOaOpiag@cluster0.3bhcc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -18,7 +18,7 @@ mongoose.connect(`${process.env.MONGO_URL}`,{
 }).catch((err)=>console.log("error with mongodb ",err));
 
 app.get("/",(req,res)=>{
-    res.send(`running ${process.env.MONGO_URL}`);
+    res.send(`running`);
 })
 
 app.use("/api/users", userRoutes);
