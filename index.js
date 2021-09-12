@@ -17,9 +17,9 @@ app.use(express.json());
 //     console.log("MONGODB Connected!!!!");
 // }).catch((err)=>console.log("error with mongodb ",err));
 
-// app.get("/",(req,res)=>{
-//     res.send("running", `${process.env.MONGO_URL}`);
-// })
+app.get("/",(req,res)=>{
+    res.send("running", `${process.env.MONGO_URL}`);
+})
 
 // app.use("/api/users", userRoutes);
 // app.use("/api/pins", pinRoutes);
