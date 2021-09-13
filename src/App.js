@@ -339,6 +339,9 @@ function App() {
             <p className="titleOfRight"> {displayInfo[0].title}</p>
           }
           {
+            console.log("check displayInfo" ,displayInfo)
+          }
+          {
               displayInfo.map((props)=> {
                 return(
                   <CardRight  props={props}/>
