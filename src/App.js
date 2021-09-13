@@ -225,9 +225,9 @@ function App() {
           <ReactMapGL
             {...viewport}
             ref={mapRef}
-            mapboxApiAccessToken= {process.env.REACT_APP_MAPBOX}
+            mapboxApiAccessToken= "pk.eyJ1Ijoic2FuZGVzaDA4IiwiYSI6ImNrc3BqdjI2MDAzaHczMm9kbWpkcTI0ODQifQ.vKxQCv9_HnCfxp9ijjZXZg"
             onViewportChange={nextViewport => handleViewPortChange(nextViewport)}
-            mapStyle={process.env.REACT_APP_MAPSTYLE}
+            mapStyle="mapbox://styles/sandesh08/ckt32i9o20yab18lqo9r090jn"
             onDblClick = {handleAddClick}
             transitionDuration = "300"
           > 
