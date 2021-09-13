@@ -4,8 +4,6 @@ import "./App.css";
 import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 import mapboxgl from "mapbox-gl"; // This is a dependency of react-map-gl even if you didn't explicitly install it
 
-// eslint-disable-next-line import/no-webpack-loader-syntax
-mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RoomIcon from '@material-ui/icons/Room';
 import axios from "axios";
@@ -22,6 +20,9 @@ import Geocoder from 'react-map-gl-geocoder';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
+
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 function App() {
   const myStorage = window.localStorage;
