@@ -151,14 +151,17 @@ function App() {
   
 
   useEffect(() => {
+    console.log("func called");
     axios.get(`${process.env.REACT_APP_BACKEND_SERVER}/pins/${currentPlaceId}`)
     .then((response)=>{
+      console.log("response.data of req: ",response.data);
       var dummy=[];
       for(var x of pins ) {
         if(x.title===response.data[0].title || x.lat===response.data[0].lat || x.long===response.data[0].long) dummy.push(x);
       }
       dummy.reverse()
       setDisplayInfo(dummy);
+      console.log(dummy);
      })
     .catch((e)=>{
       console.log(e);
