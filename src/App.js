@@ -168,6 +168,8 @@ function App() {
   const handleViewPortChange = (nextViewport) => {
       setViewport(nextViewport);
   }
+
+  console.log(process.env.REACT_APP_BACKEND_SERVER);
   
   return (
     <div className="outerBox">
@@ -226,6 +228,8 @@ function App() {
                       style={{width: "30vw"}}
                     />
                 </div>
+
+                {/* comment starts
             {
               pins.map((p)=>{
                 return (
@@ -274,7 +278,10 @@ function App() {
                   }
                 </div>
                 )})}
+                comments ends */}
 
+
+                {/* comment starts
             {newPlace && 
               <Popup
                   latitude={newPlace.lat}
@@ -303,6 +310,7 @@ function App() {
                 </div>
               </Popup>
             }
+              comment ends */}
 
             {(currentUser) ?
               window.innerWidth>600 && <button className="button logout" onClick={handleLogout}> logOut </button> :
