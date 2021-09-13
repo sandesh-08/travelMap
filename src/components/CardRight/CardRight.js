@@ -8,7 +8,7 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const CardRight=(props)=>{
+const CardRight=(props,key)=>{
   const myStorage = window.localStorage;
   const currUser=myStorage.getItem("user");
 

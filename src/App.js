@@ -52,6 +52,9 @@ function App() {
       if(res.data.code==='Ok') setBicycleTime(res.data.routes[0].duration);
       else setBicycleTime(null);
     })
+    .catch(()=>{
+      setBicycleTime(null);
+    })
 
     setCarTime(null);
     axios.get(`${process.env.REACT_APP_TIMECAR}/${userLong},${userLatt};${newLong},${newLatt}?&access_token=${process.env.REACT_APP_MAPBOX}`)
@@ -59,12 +62,18 @@ function App() {
       if(res.data.code==='Ok') setCarTime(res.data.routes[0].duration);
       else setCarTime(null);
     })
+    .catch(()=>{
+      setCarTime(null);
+    })
 
     setWalkTime(null);
     axios.get(`${process.env.REACT_APP_TIMEWALK}/${userLong},${userLatt};${newLong},${newLatt}?&access_token=${process.env.REACT_APP_MAPBOX}`)
     .then((res)=> {
       if(res.data.code==='Ok') setWalkTime(res.data.routes[0].duration);
       else setWalkTime(null);
+    })
+    .catch(()=>{
+      setWalkTime(null);
     })
   }
 
@@ -151,21 +160,23 @@ function App() {
   
 
   useEffect(() => {
-    console.log("func called");
-    axios.get(`${process.env.REACT_APP_BACKEND_SERVER}/pins/${currentPlaceId}`)
-    .then((response)=>{
-      console.log("response.data of req: ",response.data);
-      var dummy=[];
-      for(var x of pins ) {
-        if(x.title===response.data[0].title || x.lat===response.data[0].lat || x.long===response.data[0].long) dummy.push(x);
-      }
-      dummy.reverse()
-      setDisplayInfo(dummy);
-      console.log(dummy);
-     })
-    .catch((e)=>{
-      console.log(e);
-    })
+    if(currentPlaceId!==null) {
+      axios.get(`${process.env.REACT_APP_BACKEND_SERVER}/pins/${currentPlaceId}`)
+      .then((response)=>{
+        var dummy=[];
+        for(var x of pins ) {
+          if(x.title===response.data[0].title || x.lat===response.data[0].lat || x.long===response.data[0].long) dummy.push(x);
+        }
+        dummy.reverse()
+        setDisplayInfo(dummy);
+      })
+      .catch((e)=>{
+        console.log(e);
+      })
+    }
+    else {
+
+    }
   }, [currentPlaceId,pins]);
 
   const handleViewPortChange = (nextViewport) => {
@@ -232,7 +243,7 @@ function App() {
             {
               pins.map((p)=>{
                 return (
-                <div>
+                <div key={p._id}>
                   <Marker 
                     latitude={p.lat} 
                     longitude={p.long} 
@@ -342,12 +353,9 @@ function App() {
             <p className="titleOfRight"> {displayInfo[0].title}</p>
           }
           {
-            console.log("check displayInfo" ,displayInfo)
-          }
-          {
               displayInfo.map((props)=> {
                 return(
-                  <CardRight  props={props}/>
+                  <CardRight  props={props} key={props.id}/>
                 );
               })
           }
