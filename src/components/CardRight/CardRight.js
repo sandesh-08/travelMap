@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const CardRight=(props,key)=>{
+  console.log("into rightcard: ",props);
   const myStorage = window.localStorage;
   const currUser=myStorage.getItem("user");
 
