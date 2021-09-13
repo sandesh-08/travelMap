@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import "./App.css";
-// import {Marker, Popup} from 'react-map-gl';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import RoomIcon from '@material-ui/icons/Room';
+import RoomIcon from '@material-ui/icons/Room';
 import axios from "axios";
 import Register from './components/Register';
 import Login from './components/Login';
@@ -169,8 +168,6 @@ function App() {
   const handleViewPortChange = (nextViewport) => {
       setViewport(nextViewport);
   }
-
-  console.log(process.env.REACT_APP_BACKEND_SERVER);
   
   return (
     <div className="outerBox">
@@ -229,8 +226,6 @@ function App() {
                       style={{width: "30vw"}}
                     />
                 </div>
-
-                {/* comment starts
             {
               pins.map((p)=>{
                 return (
@@ -279,10 +274,7 @@ function App() {
                   }
                 </div>
                 )})}
-                comments ends */}
 
-
-                {/* comment starts
             {newPlace && 
               <Popup
                   latitude={newPlace.lat}
@@ -311,7 +303,6 @@ function App() {
                 </div>
               </Popup>
             }
-              comment ends */}
 
             {(currentUser) ?
               window.innerWidth>600 && <button className="button logout" onClick={handleLogout}> logOut </button> :
