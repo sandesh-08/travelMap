@@ -165,12 +165,14 @@ function App() {
       .then((response)=>{
         var dummy=[];
         for(var x of pins ) {
-          if(x.title===response.data[0].title || x.lat===response.data[0].lat || x.long===response.data[0].long) dummy.push(x);
+          if(x.title.toLowerCase()===response.data[0].title.toLowerCase() || x.lat===response.data[0].lat || x.long===response.data[0].long) dummy.push(x);
         }
         dummy.reverse()
         setDisplayInfo(dummy);
+        console.log(dummy);
       })
       .catch((e)=>{
+        console.log("error !! dummy");
         console.log(e);
       })
     }
