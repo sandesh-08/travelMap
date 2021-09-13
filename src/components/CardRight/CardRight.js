@@ -86,7 +86,7 @@ const CardRight=(props,key)=>{
           text="light"
           className="mb-2 mainCard"
         >
-          <Card.Body>
+          <Card.Body className="mainBodyCard">
             <Card.Title style={{display: "flex"}}> 
               <div className="headingRightCard">Rating : </div>
               <div className="stars">
