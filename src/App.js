@@ -351,6 +351,9 @@ function App() {
           { displayInfo.length===0 &&
             <p className="titleOfRight"> Review's Box </p>
           }
+          {
+            console.log(displayInfo)
+          }
           { displayInfo[0] &&
             <p className="titleOfRight"> {displayInfo[0].title}</p>
           }
