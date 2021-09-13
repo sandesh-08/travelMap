@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import "./App.css";
-import ReactMapGL, {Marker, Popup} from 'react-map-gl';
+// import {Marker, Popup} from 'react-map-gl';
+import ReactMapGL from 'react-map-gl';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RoomIcon from '@material-ui/icons/Room';
+// import RoomIcon from '@material-ui/icons/Room';
 import axios from "axios";
 import Register from './components/Register';
 import Login from './components/Login';
