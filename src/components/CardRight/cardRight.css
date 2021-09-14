@@ -1,0 +1,71 @@
+.mainCardinCardRight {
+    width: 100%;
+    height: max-content;
+    border-bottom: 1px solid white;
+}
+
+.cardTextRightinCardRight {
+    color: rgb(34, 236, 16);
+    border-radius: 15px;
+    border: 1px solid rgb(245, 245, 245);
+    font-size: 11px;
+    margin: 0 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    overflow-x: hidden;
+    padding: 5px;
+}
+
+/* .desc {
+    font-size: 9px;    
+    margin: 0 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    color: slateblue;      
+    overflow-x: scroll;
+} */
+
+.starinRightCard {
+    margin-left: 10px;
+    color: gold;
+}
+
+.starsinRightCard {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.cardbottomRightinCardRight {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 11px;
+    color: rgb(247, 248, 239);
+    padding-top: 5px;
+}
+
+.headingRightCardinCardRight {
+    font-size: 14px;
+}
+
+.deleteReviewinCardRight {
+    background-color: red;
+    color: black;
+    border-radius: 50px;;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.deleteReviewinCardRight:hover {
+    color: white;
+    border: 2px solid white;
+}
+
+.toastStyle {
+    background-color: black !important;
+    color: white !important;
+}
