@@ -8,8 +8,8 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const CardRight=(props,key)=>{
-  console.log("into rightcard: ",props);
   const myStorage = window.localStorage;
   const currUser=myStorage.getItem("user");
 
@@ -52,7 +52,6 @@ const CardRight=(props,key)=>{
   }
 
   const notifyToastError=()=>{
-    console.log("invoking error") ;
     toast.error(" Something went Wrong ", {
       position: "top-right",
       autoClose: 1000,

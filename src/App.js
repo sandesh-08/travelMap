@@ -24,8 +24,6 @@ import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
-
-
 function App() {
   const myStorage = window.localStorage;
   const [currentUser,setCurrentUser] = useState(myStorage.getItem("user"));
@@ -364,7 +362,6 @@ function App() {
           }
           {
               displayInfo.map((props)=> {
-                console.log(props);
                 return(
                   <CardRight  props={props} key={props.id}/>
                 );
