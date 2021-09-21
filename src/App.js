@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import "./App.css";
-import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 import mapboxgl from "mapbox-gl"; // This is a dependency of react-map-gl even if you didn't explicitly install it
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 import Geocoder from 'react-map-gl-geocoder';
 
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
@@ -240,9 +240,8 @@ function App() {
                     <Geocoder
                       mapRef={mapRef}
                       onViewportChange={nextViewport => handleViewPortChange(nextViewport)}
-                      mapboxApiAccessToken = {process.env.REACT_APP_MAPBOX}
+                      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
                       position="top-left"
-                      style={{width: "30vw"}}
                     />
                 </div>
             {
@@ -330,8 +329,14 @@ function App() {
               window.innerWidth>600 && <button className="button logout" onClick={handleLogout}> logOut </button> :
               window.innerWidth>600 &&
                   <div className="buttons">
-                    <button className="button login" onClick={()=>setShowLogin(true)}> logIn</button>
-                    <button className="button register"  onClick={()=>setShowRegister(true)}> Register</button>
+                    <button className="button login" onClick={()=>{
+                      setShowLogin(true);
+                      setShowRegister(false);
+                    }}> logIn</button>
+                    <button className="button register"  onClick={()=>{
+                      setShowRegister(true);
+                      setShowLogin(false);
+                    }}> Register</button>
                   </div>
             }
             {showRegister && <Register setShowRegister={setShowRegister} />}
