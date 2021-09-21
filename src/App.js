@@ -200,8 +200,14 @@ function App() {
         {(!currentUser) && 
             window.innerWidth<=600 &&
               <div className="loginandregisterAttop">
-                  <button className="login" onClick={()=>setShowLogin(true)}> logIn </button>
-                  <button className="register"  onClick={()=>setShowRegister(true)}> Register </button>
+                  <button className="login" onClick={()=>{
+                    setShowLogin(true);
+                    setShowRegister(false);
+                  }}> logIn </button>
+                  <button className="register"  onClick={()=>{
+                    setShowRegister(true);
+                    setShowLogin(false);
+                  }}> Register </button>
               </div>
         }
       </div>
