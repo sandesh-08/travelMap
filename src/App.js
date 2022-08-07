@@ -183,7 +183,7 @@ function App() {
     else {
 
     }
-  }, [currentPlaceId,pins]);
+  }, [currentPlaceId,pins,displayInfo]);
 
   const handleViewPortChange = (nextViewport) => {
       setViewport(nextViewport);
