@@ -149,6 +149,7 @@ function App() {
     try {
       const res = await axios.post(`${process.env.REACT_APP_BACKEND_SERVER}/pins`,newPin);
       setPins([...pins,res.data]);
+      getReviews();
       setNewPlace(null);
     }
     catch(err) {
@@ -163,9 +164,7 @@ function App() {
     setCurrentUser(null);
   }
   
-
-  useEffect(() => {
-    if(currentPlaceId!==null) {
+  function getReviews = () => {
       axios.get(`${process.env.REACT_APP_BACKEND_SERVER}/pins/${currentPlaceId}`)
       .then((response)=>{
         var dummy=[];
@@ -180,6 +179,11 @@ function App() {
       .catch((e)=>{
         console.log(e);
       })
+  }
+
+  useEffect(() => {
+    if(currentPlaceId!==null) {
+      getReviews();
     }
     else {
 
