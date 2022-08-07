@@ -164,7 +164,7 @@ function App() {
     setCurrentUser(null);
   }
   
-  function getReviews = () => {
+  const getReviews = () => {
       axios.get(`${process.env.REACT_APP_BACKEND_SERVER}/pins/${currentPlaceId}`)
       .then((response)=>{
         var dummy=[];
