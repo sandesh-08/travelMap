@@ -174,6 +174,7 @@ function App() {
         }
         dummy.reverse()
         setDisplayInfo(dummy);
+        console.log("check: data: ", displayInfo);
       })
       .catch((e)=>{
         console.log(e);
