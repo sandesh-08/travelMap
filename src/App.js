@@ -183,12 +183,25 @@ function App() {
 
   useEffect(() => {
     if(currentPlaceId!==null) {
-      getReviews();
+      axios.get(`${process.env.REACT_APP_BACKEND_SERVER}/pins/${currentPlaceId}`)
+      .then((response)=>{
+        var dummy=[];
+        for(var x of pins ) {
+          if(!x.title || !response.data[0].title) continue;
+          if(x.title.toLowerCase()===response.data[0].title.toLowerCase() || x.lat===response.data[0].lat || x.long===response.data[0].long) dummy.push(x);
+        }
+        dummy.reverse()
+        setDisplayInfo(dummy);
+        console.log("check: data: ", displayInfo);
+      })
+      .catch((e)=>{
+        console.log(e);
+      })
     }
     else {
 
     }
-  }, [currentPlaceId,pins,displayInfo]);
+  }, [currentPlaceId,pins,displayInfo,]);
 
   const handleViewPortChange = (nextViewport) => {
       setViewport(nextViewport);
